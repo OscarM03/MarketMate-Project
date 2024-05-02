@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+        <!-- Businesses section title -->
+    <div class="businesses-header">
+        <h1>Businesses:</h1>
+    </div>
+
+    <!-- Businesses section -->
+    <div>
+        <div class="grid-container">
+            {% for business in businesses %}
+            <div class="business">
+                <a href="{% url 'business-page' business.b_id %}"><img src="{{ business.image.url }}" alt=""></a>
+                <small class="cat">{{business.category.name}}</small>
+                <a href="{% url 'business-page' business.b_id %}"><h3>{{ business.name }}</h3></a>
+                <small class="location">{{ business.county }}</small>
+                <p>{{ business.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

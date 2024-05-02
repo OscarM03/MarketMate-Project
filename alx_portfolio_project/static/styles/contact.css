@@ -1,0 +1,64 @@
+.details-section {
+    background-color: #ceced1;
+}
+.top-details {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 150px;
+}
+.call {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    border-radius: 20px;
+    background-color: #fff;
+}
+.email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.call img, .email img {
+    padding-right: 20px;
+}
+
+.bottom-details {
+    text-align: center;
+}
+
+.bottom-details form {
+    padding-top: 70px;
+}
+
+.bottom-details input[type="text"] {
+    width: 300px;
+    padding: 13px 13px;
+    border-radius: 15px;
+    border: 0;
+    outline: none;
+}
+.bottom-details textarea {
+    width: 600px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    height: 100px;
+    padding: 10px 10px;
+    font-style: inherit;
+}
+
+.bottom-details button {
+    background-color: #FFA101;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 0;
+    margin-bottom: 10px;
+}
+.bottom-details button:hover {
+    background-color: #0d8de0;
+}

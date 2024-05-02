@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <!-- Product section -->
+        <div class="business-info-container">
+            <div class="business-photo">
+                <img src="{{ business.image.url }}" alt="">
+            </div>
+            <div class="business-data">
+                <small>{{ business.category.name }}</small>
+                <h1>{{ business.name }}</h1>
+                <p class="address">{{ business.county }}<br>{{business.address}}</p>
+            </div>
+            <p class="inquiry"><span>For Inquiry:</span>Reach us by calling +254 {{ business.phone_no }}</p>
+            <div class="votes">
+                <a href="{% url 'upvotes' business.b_id %}"><small>upvotes</small></a>
+                <a href="{% url 'upvotes' business.b_id %}"><img src="{% static 'images/upvote.png' %}" alt=""></a>
+                <small>{{ business.votes }}</small>
+            </div>
+        </div>
+        <button class="add-product" >Add Product</button>
+        <h1 class="products-title">Products:</h1>
+        <div class="products-shelves">
+            {% for product in products %}
+            <div class="onsale-product">
+                <img src="{{ product.image.url }}" alt="">
+                <p><span>{{ product.name }}</span> <br> Ksh.{{ product.price }} <br> <small>Stock: {{ product.stock }}</small></p>
+                <div class="product-edit">
+                    <img src="{% static 'images/edit.png' %}" alt="">
+                </div>
+                <div class="product-delete">
+                    <img src="{% static 'images/bin.png' %}" alt="">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Start of the footer -->
+
+{% endblock content %}

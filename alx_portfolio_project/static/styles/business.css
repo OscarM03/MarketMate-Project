@@ -1,0 +1,128 @@
+.business-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 100px;
+    margin-left: 220px;
+    border: 2px solid #ceced1;
+    border-radius: 15px;
+    position: relative;
+    
+}
+
+.business-photo img {
+    width: 500px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 0px;
+    padding-right: 25px;
+    border-radius: 50px;
+}
+
+.business-data {
+    line-height: 50px;
+    font-weight: bold;
+}
+.business-data small{
+    color: #0d8ce0e3;
+}
+.business-data h1 {
+    color: #FFA101;
+}
+.inquiry {
+    position: absolute;
+    bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.inquiry span {
+    color: #0d8ce0e3;
+    padding-right: 10px;
+}
+
+/* Products section */
+.products-title {
+    border-bottom: 1px solid #ceced1;
+    text-align: center;
+}
+
+.products-shelves {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+    margin: 0 20px;
+}
+.onsale-product {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 2px solid #ceced1;
+}
+.onsale-product img {
+    width: 150px;
+    padding: 10px 10px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+.onsale-product p {
+    line-height: 30px;
+    color: #0d8ce0e3;
+}
+
+.onsale-product img:hover {
+    transform: scale(1.7);
+}
+.onsale-product p span {
+    color: #FFA101;
+}
+.onsale-product p small {
+    color: #000;
+}
+
+.votes {
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ceced1;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.votes img {
+    width: 30px;
+}
+
+.product-edit, .product-delete {
+    position: absolute;
+    right: 5px;
+    top: -5px;
+}
+.product-edit {
+    right: 30px;
+}
+.product-delete img, .product-edit img {
+    width: 40px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.onsale-product:hover .product-edit img{
+    opacity: 1;
+}
+.onsale-product:hover .product-delete img{
+    opacity: 1;
+}
+
+.add-product {
+    position: absolute;
+    right: 20px;
+    padding: 9px;
+    border-radius: 15px;
+    border: 0;
+    background-color: #0d8ce093;
+    font-weight: bold;
+}

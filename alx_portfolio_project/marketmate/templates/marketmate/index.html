@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}    
+            <!-- Start of the businesses section -->
+            <div class="businesses">
+                <div class="next-btn">
+                    <a href="{% url 'stores' %}"> <img src="{% static 'images/next.png' %}" alt=""></a>
+                </div>
+                <div class="grid-container">
+                    {% for business in businesses%}
+                    <div class="business">
+                        <a href="{% url 'business-page' business.b_id %}"><img src="{{ business.image.url }}" alt=""></a>
+                        <small class="cat">{{business.category.name}}</small>
+                        <a href="{% url 'business-page' business.b_id %}"><h3>{{ business.name }}</h3></a>
+                        <small class="location">{{ business.county }}</small>
+                        <p>{{ business.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- End of the businesses section -->
+    
+            <!-- Start of best seller's section -->
+            <div class="businesses">
+                <div class="beat-sellers-title"><h1>Best Sellers:</h1></div>
+                <div class="grid-container">
+                    {% for best_seller_business in best_seller_businesses %}
+                    <div class="business">
+                        <a href="{% url 'business-page' best_seller_business.b_id %}"><img src="{{ best_seller_business.image.url }}" alt=""></a>
+                        <small class="cat">{{best_seller_business.category.name}}</small>
+                        <a href="{% url 'business-page' best_seller_business.b_id %}"><h3>{{ best_seller_business.name }}</h3></a>
+                        <small class="location">{{ best_seller_business.county }}</small>
+                        <p>{{ best_seller_business.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- End of best seller's section -->
+{% endblock content %}

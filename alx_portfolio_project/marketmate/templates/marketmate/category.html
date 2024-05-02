@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content%}
+
+{% for category in categories %}
+    <div class="category-container">
+        <div class="categories">
+            <ul>
+                <li><a href="{% url 'stores' %}?q={{category.name}}">{{ category.name }}</a></li>
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+    
+
+{% endblock content %}
