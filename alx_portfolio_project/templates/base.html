@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles/profile.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/business-form.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/login-register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/forms.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/crud.css' %}">
 </head>
 <body>
     <!-- Start of header -->
@@ -27,7 +29,7 @@
             </form>
             <div class="profile">
                 <p class="name">Hello, {{ request.user.username }}</p>
-                <a href="{% url 'profile' request.user.id %}"><img src="{% static 'images/profile.jpg' %}" alt=""></a>
+                <a href="{% url 'profile' request.user.id %}"><img src="{{ request.user.profile_pic.url }}" alt=""></a>
             </div>
         </div>
         <div class="navigation-bar">            
