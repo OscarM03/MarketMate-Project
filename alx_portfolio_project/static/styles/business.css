@@ -59,6 +59,7 @@
     border-radius: 20px;
     font-weight: bold;
     border: 2px solid #ceced1;
+    position: relative;
 }
 .onsale-product img {
     width: 150px;
@@ -81,6 +82,26 @@
     color: #000;
 }
 
+.product-edit-btn, .product-delete-btn {
+    position: absolute;
+    left: 5px;
+    top: -20px;
+}
+.product-edit-btn {
+    left: 30px;
+}
+.product-delete-btn img, .product-edit-btn img {
+    width: 40px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 500;
+}
+.onsale-product:hover .product-edit-btn img{
+    opacity: 1;
+}
+.onsale-product:hover .product-delete-btn img{
+    opacity: 1;
+} 
 .votes {
     color: #000;
     display: flex;
@@ -95,20 +116,6 @@
 }
 .votes img {
     width: 30px;
-}
-
-.product-edit, .product-delete {
-    position: absolute;
-    right: 5px;
-    top: -5px;
-}
-.product-edit {
-    right: 30px;
-}
-.product-delete img, .product-edit img {
-    width: 40px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 .onsale-product:hover .product-edit img{
     opacity: 1;
