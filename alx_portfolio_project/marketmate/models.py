@@ -1,9 +1,18 @@
 from django.db import models
-from django.contrib.auth.models import User
 from shortuuid.django_fields import ShortUUIDField
-
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
+
+class User(AbstractUser):
+    """User table"""
+    name = models.CharField(max_length=100, null=True)
+    email = models.EmailField(null=True)
+    profile_pic = models.ImageField(upload_to='marketmate/files/covers', default='profile.jpg', null=True)
+    
+
+
 class Category(models.Model):
+    """Category table"""
     c_id = ShortUUIDField(unique=True, length=10, max_length=20, prefix="bus", alphabet="abcdef123456")
     name = models.CharField(max_length=100)
 
@@ -11,6 +20,7 @@ class Category(models.Model):
         return self.name
     
 class Business(models.Model):
+    """Business Table"""
     b_id = ShortUUIDField(unique=True, length=10, max_length=20, prefix="bus", alphabet="abcdef123456")
     name = models.CharField(max_length=200)
     image = models.ImageField(upload_to='marketmate/files/covers', null=True)
@@ -32,6 +42,7 @@ class Business(models.Model):
         return self.name
     
 class Product(models.Model):
+    """product table"""
     p_id = ShortUUIDField(unique=True, length=10, max_length=20, prefix="bus", alphabet="abcdef123456")
     name = models.CharField(max_length=200)
     image = models.ImageField(upload_to='marketmate/files/covers', null=True)
