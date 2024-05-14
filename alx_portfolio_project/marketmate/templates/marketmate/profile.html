@@ -3,19 +3,16 @@
 
 {% block content %}
     <div class="profile-container">
-        <img src="{% static 'images/profile.jpg' %}" class="profile-image" alt="">
-        <h3>OscarM</h3>
-        <p><span>Businesses</span>: 5  |  <span>Products</span>: 105</p>
-        <div class="edit">
-            <img src="{% static 'images/edit.png' %}"  alt="">
-        </div>
+        <img src="{{ user.profile_pic.url }}" class="profile-image" alt="">
+        <h3>{{user.username}}</h3>
+        <p><span>Businesses</span>: {{ business_count }} |  <span>Products</span>: {{ products_count }}</p>
         <div class="creation">
             <div class="create-btn">
                 <a href="{% url 'create-business' %}"><button>Create Business</button></a>
                 
             </div>
             <div class="create-btn">
-                <button>Create Product</button>
+                <a href="{% url 'profile-update' request.user.id %}"><button>Edit Profile</button></a>
                 
             </div>
         </div>
@@ -29,11 +26,11 @@
                     <a href="{% url 'business-page' business.b_id %}"><h3>{{ business.name }}</h3></a>
                     
                 </div>
-                <div class="bin">
-                    <img src="{% static 'images/bin.png' %}" alt="">
+                <div class="business-bin">
+                    <a href="{% url 'delete-business' business.b_id %}"><img src="{% static 'images/bin.png' %}" alt=""></a>
                 </div>
                 <div class="business-edit">
-                    <img src="{% static 'images/edit.png' %}" alt="">
+                    <a href="{% url 'update-business' business.b_id %}"><img src="{% static 'images/edit.png' %}" alt=""></a>
                 </div>
                 
             </div>
