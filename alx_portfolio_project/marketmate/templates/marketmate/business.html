@@ -19,18 +19,20 @@
                 <small>{{ business.votes }}</small>
             </div>
         </div>
-        <button class="add-product" >Add Product</button>
-        <h1 class="products-title">Products:</h1>
+        {% if request.user == business.owner%}
+            <a href="{% url 'create-product' %}"><button class="add-product" >Add Product</button></a>
+        {% endif %}
+            <h1 class="products-title">Products:</h1>
         <div class="products-shelves">
             {% for product in products %}
             <div class="onsale-product">
                 <img src="{{ product.image.url }}" alt="">
                 <p><span>{{ product.name }}</span> <br> Ksh.{{ product.price }} <br> <small>Stock: {{ product.stock }}</small></p>
-                <div class="product-edit">
-                    <img src="{% static 'images/edit.png' %}" alt="">
+                <div class="product-edit-btn">
+                    <a href="{% url 'update-product' product.p_id %}"><img src="{% static 'images/edit.png' %}" alt=""></a>
                 </div>
-                <div class="product-delete">
-                    <img src="{% static 'images/bin.png' %}" alt="">
+                <div class="product-delete-btn">
+                    <a href="{% url 'delete-product' product.p_id %}"><img src="{% static 'images/bin.png' %}" alt=""></a>
                 </div>
             </div>
             {% endfor %}
